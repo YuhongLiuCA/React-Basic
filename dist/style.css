@@ -1,0 +1,42 @@
+header {
+  width: 100%;  
+}
+#navbar {
+  position:fixed;
+  left: 5px;
+  width: 15%;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  overflow: scrollbar;
+}
+
+.nav-link {
+  margin-top:15px;
+}
+
+.main-section {
+  float: right;
+  width: 85%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.code {
+  background-color: #D7CCC8;
+  line-height: 0px;
+  left: 40px;
+  padding: 1px;
+}
+h1 {
+  text-align: center;
+}
+
+@media (max-width: 450px) {
+  #navbar {
+    position: flex;
+    left: 5px;
+  }
+}

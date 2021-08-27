@@ -1,0 +1,126 @@
+<html>
+  
+  <main id="main-doc">
+    <header>
+      <h1>React Basic</h1>        
+    </header>
+    
+    <nav id="navbar">
+      <h2 id="header">React basic</h2> 
+      <a href="#React_Introduction" class="nav-link">Introduction</a>
+      <a href="#Hello_World_Application" class="nav-link">Hello World Application</a>
+      <a href="#React_Component" class="nav-link">React Component</a>
+      <a href="#Function_Component" class="nav-link">Function Component</a>
+      <a href="#React_Input" class="nav-link">React Input</a>
+    </nav>
+    
+    <section class="main-section" id="React_Introduction">
+      <h2 id="header">React introduction</h2>      
+      <ul>
+        <li>React is currently the most famous JavaScript Library for building UI interface.</li>
+        <li>For every DOM objext, there is one corresponding "<strong>Vitual DOM object</strong>". Using virtual DOM, the benefit is we can only update needed onjects in real DOM.</li>
+        <li>React use JSX which combines JavaScript togetehr with HTML together.</li>
+      </ul>      
+    </section>
+    
+    <section class="main-section" id="Hello_World_Application">
+      <h2 id="header">Hello World Application</h2>      
+      <ul>
+        <li>JSX Element.</li>
+        <p>JSX element looks exactly same as HTML. Only difference is it in JavaScript file.</p>
+        <p>The following is one examples code:</p>
+        <code class="code"> const title = &lsaquo;h1&rsaquo;Hello world&lsaquo;/h1&rsaquo;; </code> 
+        <p><br></p>
+        <li>Rendering JSX</li>
+        <p>We use React render method to display "Hello World". The following is the whole code:</p>
+        <code class="code"> 
+          import React from 'react'; <br>
+import ReactDOM from 'react-dom'; <br>
+          const title = &lsaquo;h1&rsaquo;Hello world&lsaquo;/h1&rsaquo;; <br>
+          ReactDOM.render(title, document.getElementById('app'));
+        </code>
+      </ul> 
+    </section>
+    
+    <section class="main-section" id="React_Component">
+      <h2 id="header">React Component</h2>  
+      <p>React Compoent is a very useful class responsible for one job.</p>
+      <p>To set up your own React Component, you need to subclass React.Component.</p>
+      <p>Every component, you must fill in at least render method. Please see following whole code:</p>
+      <p><code class="code"> 
+          import React from 'react'; <br>
+import ReactDOM from 'react-dom'; <br>
+          class MyComponent extends React.Component { <br>
+  &ensp;&ensp;render() { <br>
+    &ensp;&ensp;&ensp;&ensp;return &lsaquo;h1&rsaquo;Hello world&lsaquo;/h1&rsaquo;;
+ <br> &ensp;&ensp;}
+<br>} <br>
+          ReactDOM.render(
+	&lsaquo;MyComponent /&rsaquo;, 
+	document.getElementById('app')
+);
+        </code></p>
+    </section>
+    <section class="main-section" id="Function_Component">
+      <h2 id="header">Function Component</h2>      
+      <p>Function component is React component defined as JavaScript function.</p>
+      <p>Function components must return JSX.</p>
+      <p>Function components may accept a props parameter. Expect it to be a JavaScript object.</p>
+      <p><code class="code"> 
+          export const MyComponent = () => { <br>
+  &ensp;&ensp;return
+    &lsaquo;h1&rsaquo;Hello world&lsaquo;/h1&rsaquo;;
+<br>} <br>
+      </code></p>
+      <p>Whole code as follows:</p>
+      <p><code class="code"> 
+           import React from 'react'; <br>
+import ReactDOM from 'react-dom'; <br>
+          export const MyComponent = () => { <br>
+  &ensp;&ensp;return &lsaquo;h1&rsaquo;Hello world&lsaquo;/h1&rsaquo;;
+<br>} <br>
+        ReactDOM.render(
+	&lsaquo;MyComponent /&rsaquo;, 
+	document.getElementById('app')
+);
+      </code></p>
+      
+    </section>
+    <section class="main-section" id="React_Input">
+      <h2 id="header">React Input</h2>
+      <p>React input just like html input, but we need to add handler function track every change of the input.</p>
+      <p>We use component state to store the content and use it if need.</p>
+      <p>Whole code we can design like the following:</p>
+      <p><code class="code">
+        import React from 'react'; <br>
+import ReactDOM from 'react-dom'; <br>
+
+export class Input extends React.Component {<br>
+  &ensp;&ensp;constructor(props) {<br>
+    &ensp;&ensp;&ensp;&ensp;super(props);<br>
+    &ensp;&ensp;&ensp;&ensp;this.state = {userInput: ""};<br>
+    &ensp;&ensp;&ensp;&ensp;this.handleUserInput = this.handleUserInput.bind(this);<br>
+  &ensp;&ensp;}<br>
+  &ensp;&ensp;handleUserInput(e) {<br>
+  &ensp;&ensp;&ensp;&ensp;this.setState({userInput: e.target.value});<br>
+  &ensp;&ensp;}<br>
+
+  &ensp;&ensp;render() {<br>
+    &ensp;&ensp;&ensp;&ensp;return ( <br>
+      &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lsaquo;div&rsaquo;<br>
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lsaquo;input type="text" onChange={this.handleUserInput} value={this.state.userInput} name="text" id="text"/&rsaquo;<br>
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lsaquo;h1&rsaquo;{this.state.userInput}&lsaquo;/h1&rsaquo;<br>
+      &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lsaquo;/div&rsaquo;<br>
+    &ensp;&ensp;&ensp;&ensp;);<br>
+  &ensp;&ensp;}<br>
+}<br>
+
+ReactDOM.render(
+	&lsaquo;Input /&rsaquo;,
+	document.getElementById('app')
+);<br>
+      </code></p>
+    </section>
+  </main>
+  
+</html>
